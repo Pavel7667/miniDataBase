@@ -11,7 +11,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.souurce>1.17</maven.compiler.souurce>
-    <maven.compiler.target>1.17</maven.compiler.target>
+    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
   </properties>
 
   <dependencies>
@@ -64,17 +65,15 @@
       <artifactId>spring-orm</artifactId>
       <version>5.3.23</version>
     </dependency>
-
-
-
-
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>RELEASE</version>
+      <scope>compile</scope>
+    </dependency>
 
 
   </dependencies>
 
-
-  <build>
-    <finalName>com.spring</finalName>
-  </build>
 
 </project>
