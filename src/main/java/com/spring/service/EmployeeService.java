@@ -1,13 +1,13 @@
-package com.spring.dao;
+package com.spring.service;
 
 import com.spring.entity.Employee;
 
 import java.util.List;
 
 /**
- * Basic interface DAO
+ * Basic interface Service
  */
-public interface EmployeeDAO {
+public interface EmployeeService {
 
     public List<Employee> getAllEmployees();
 }

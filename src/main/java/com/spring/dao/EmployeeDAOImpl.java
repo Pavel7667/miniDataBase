@@ -20,7 +20,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
      * Transactions between DB and DAO to get List<Employee>
      * @return allEmployees List of Objects
      */
-    @Transactional
+
     public List<Employee> getAllEmployees() {
         Session session = sessionFactory.getCurrentSession();
 
