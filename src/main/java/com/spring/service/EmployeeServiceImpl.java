@@ -16,6 +16,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     /**
      * getAllEmployees use link to DAO-Object to get Objects from DB
+     *
      * @return employeeDAO = List of Objects from DB
      */
     @Override
@@ -31,5 +32,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Transactional
     public void saveEmployee(Employee employee) {
         employeeDAO.saveEmployee(employee);
+    }
+
+    /**
+     * Method getEmployee using DAO-Realization of getting Object fom DB
+     *
+     * @param id of object in DB
+     * @return object from DB
+     */
+    @Override
+    @Transactional
+    public Employee getEmployee(int id) {
+        return employeeDAO.getEmployee(id);
     }
 }

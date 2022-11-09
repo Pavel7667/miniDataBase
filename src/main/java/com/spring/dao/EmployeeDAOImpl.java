@@ -19,6 +19,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     /**
      * Transactions between DB and DAO to get List<Employee>
+     *
      * @return allEmployees List of Objects
      */
 
@@ -32,12 +33,25 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     /**
-     * Method saveEmployee save object in DB
+     * Method saveEmployee save or update object in DB
+     *
      * @param employee object to save in DB
      */
     @Override
     public void saveEmployee(Employee employee) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(employee);
+        session.saveOrUpdate(employee);
+    }
+
+    /**
+     * Method getEmployee using session and reflection to get Object from DB
+     *
+     * @param id of object in DB
+     * @return object from DB
+     */
+    @Override
+    public Employee getEmployee(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Employee.class, id);
     }
 }

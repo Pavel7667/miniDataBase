@@ -13,17 +13,30 @@
         <th>Surname</th>
         <th>Department</th>
         <th>Salary</th>
+        <th>Operations</th>
     </tr>
 
     <%--Emp = Object from Emploee with fields = conection by @Annotions--%>
     <%--allEmps = Model links where saving all about our Object Emploee --%>
     <c:forEach var="emp" items="${allEmps}">
 
+        <%--        Call Сontroller method name 'value'--%>
+        <%--        Param passing to Method Request parametrsc of ID--%>
+        <%--        LAGGG value="/updateInfo"> mark as RED --%>
+        <c:url var="updateButton" value="/updateInfo">
+            <c:param name="empID" value="${emp.id}"/>
+        </c:url>
+
         <tr>
             <td>${emp.name}</td>
             <td>${emp.surname}</td>
             <td>${emp.department}</td>
             <td>${emp.salary}</td>
+            <td>
+                    <%--                onClick activate XXX--%>
+                <input type="button" value="Update"
+                       onclick="window.location.href='${updateButton}'"/>
+            </td>
         </tr>
 
     </c:forEach>
