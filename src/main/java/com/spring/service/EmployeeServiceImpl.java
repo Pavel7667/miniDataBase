@@ -23,4 +23,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Employee> getAllEmployees() {
         return employeeDAO.getAllEmployees();
     }
+
+    /**
+     * saveEmployee use link DAO-Object for Service-Object to save Objects in DB
+     */
+    @Override
+    @Transactional
+    public void saveEmployee(Employee employee) {
+        employeeDAO.saveEmployee(employee);
+    }
 }

@@ -1,11 +1,11 @@
 package com.spring.controller;
 
-import com.spring.dao.EmployeeDAO;
 import com.spring.entity.Employee;
 import com.spring.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -37,6 +37,35 @@ public class MyController {
         model.addAttribute("allEmps", allEmployees);
 
         return "allEmployees";
+    }
+
+    /**
+     * Method addNewEmployee forward to link "employee_Info"
+     * Create new Employee and put information from View -> Model
+     *
+     * @return link to view
+     */
+    @RequestMapping("/addNewEmployee")
+    public String addNewEmployee(Model model) {
+
+        Employee employee = new Employee();
+        model.addAttribute("employee", employee);
+
+        return "employee_Info";
+    }
+
+    /**
+     * Method saveEmployee take from ViewModel info about Object 'employee'
+     * And using employeeService->employeeDAO-> save into DB
+     * <p>
+     * And redirect to Base site page
+     *
+     * @return link to Base site page
+     */
+    @RequestMapping("/saveEmployee")
+    public String saveEmployee(@ModelAttribute("employee") Employee employee) {
+        employeeService.saveEmployee(employee);
+        return "redirect:/";
     }
 
 }

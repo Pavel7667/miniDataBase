@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+// @ Repository this class should work with DB
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
 
@@ -28,5 +29,15 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 session.createQuery("from Employee", Employee.class);
 
         return query.getResultList();
+    }
+
+    /**
+     * Method saveEmployee save object in DB
+     * @param employee object to save in DB
+     */
+    @Override
+    public void saveEmployee(Employee employee) {
+        Session session = sessionFactory.getCurrentSession();
+        session.save(employee);
     }
 }
