@@ -72,18 +72,34 @@ public class MyController {
     /**
      * Method updateEmployee take from DB Object by ID
      * Which passing by RequestParam("empID") int id
+     * RequestMapping from View
      * <p>
      * And forward to "employee_Info" View
      *
-     * @param id
-     * @param model
-     * @return
+     * @param id    of Object in DB
+     * @param model INFO about Object
+     * @return link to URL
      */
     @RequestMapping("/updateInfo")
     public String updateEmployee(@RequestParam("empID") int id, Model model) {
         Employee employee = employeeService.getEmployee(id);
         model.addAttribute("employee", employee);
         return "employee_Info";
+    }
+
+    /**
+     * The deleteEmployee take from RequestParam ID of Object
+     * Using Service -> DAO -> Query = delete object from DB
+     * <p>
+     * And redirect to Base site page
+     *
+     * @param id of Object in DB
+     * @return link to Base site page
+     */
+    @RequestMapping("/deleteEmployee")
+    public String deleteEmployee(@RequestParam("empID") int id) {
+        employeeService.deleteEmployee(id);
+        return "redirect:/";
     }
 
 }

@@ -45,4 +45,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee getEmployee(int id) {
         return employeeDAO.getEmployee(id);
     }
+
+    /**
+     * Method deleteEmployee using DAO-Realization of deleting Object fom DB
+     *
+     * @param id of object in DB
+     */
+    @Override
+    @Transactional
+    public void deleteEmployee(int id) {
+        employeeDAO.deleteEmployee(id);
+    }
 }

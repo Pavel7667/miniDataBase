@@ -21,9 +21,16 @@
     <c:forEach var="emp" items="${allEmps}">
 
         <%--        Call Сontroller method name 'value'--%>
-        <%--        Param passing to Method Request parametrsc of ID--%>
+        <%--        Param passing to Method Request parametrsc of ID =2= --%>
         <%--        LAGGG value="/updateInfo"> mark as RED --%>
         <c:url var="updateButton" value="/updateInfo">
+            <c:param name="empID" value="${emp.id}"/>
+        </c:url>
+
+        <%--        Link for calling Сontroller method name 'value'--%>
+        <%--        =2= of <c:forEach var="emp" --%>
+        <%--        LAGGG value="/deleteEmploee"> mark as RED --%>
+        <c:url var="deleteButton" value="/deleteEmployee">
             <c:param name="empID" value="${emp.id}"/>
         </c:url>
 
@@ -33,9 +40,13 @@
             <td>${emp.department}</td>
             <td>${emp.salary}</td>
             <td>
-                    <%--                onClick activate XXX--%>
+                    <%--nClick activate updateButton -> method "/updateInfo" --%>
                 <input type="button" value="Update"
                        onclick="window.location.href='${updateButton}'"/>
+
+                    <%--nClick activate deleteButton -> method "/deleteEmploee" --%>
+                <input type="button" value="Delete"
+                       onclick="window.location.href='${deleteButton}'"/>
             </td>
         </tr>
 
